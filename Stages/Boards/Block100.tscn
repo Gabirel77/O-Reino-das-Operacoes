@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgoa4xtxtm48o"]
+
+[ext_resource type="Script" uid="uid://bdcfl5dpp4l1a" path="res://Stages/Boards/room_104.gd" id="1_gn1mo"]
+[ext_resource type="Texture2D" uid="uid://callk7b0fiq2c" path="res://icon.svg" id="1_pg56q"]
+[ext_resource type="Script" uid="uid://lt5obr6lpkpu" path="res://Scripts/path_follow.gd" id="1_tsbtd"]
+[ext_resource type="Texture2D" uid="uid://csafgbgl7yitp" path="res://SpriteButton.png" id="2_fiu53"]
+[ext_resource type="Texture2D" uid="uid://c7ju63yvcbmfw" path="res://Personagens/Idle_MainCaracter/idle_sprite_personagem_principal0.png" id="2_tsbtd"]
+[ext_resource type="Texture2D" uid="uid://be7avqbg6by57" path="res://SpriteButton2.png" id="3_4tdly"]
+[ext_resource type="Script" uid="uid://c7p06apotr3ea" path="res://Stages/Boards/BoardPlayer.gd" id="4_dryrw"]
+[ext_resource type="PackedScene" uid="uid://decxfrwggnh06" path="res://Entities/FightPlayer/FightPlayer.tscn" id="8_61bmw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsbtd"]
+size = Vector2(64, 64)
+
+[sub_resource type="Curve2D" id="Curve2D_pg56q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16, 24, -86.4012, 48.0841, 86.4012, -48.0841, 256, 48, -143.501, 0.751316, 143.501, -0.751316, 480, 56, 0, 0, 0, 0, 560, 216, 120.962, 78.1367, -120.962, -78.1367, 408, 312, 103.681, -5.2592, -103.681, 5.2592, 312, 160, 123.967, -12.7724, -123.967, 12.7724, 200, 304, 0, 0, 0, 0, 104, 168)
+}
+point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn1mo"]
+size = Vector2(48, 64)
+
+[node name="Block100" type="Node2D"]
+
+[node name="Rooms" type="Node" parent="."]
+
+[node name="Room104" type="Area2D" parent="Rooms"]
+position = Vector2(48, 48)
+script = ExtResource("1_gn1mo")
+
+[node name="Sprite" type="Sprite2D" parent="Rooms/Room104"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_fiu53")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Rooms/Room104"]
+shape = SubResource("RectangleShape2D_tsbtd")
+
+[node name="Room105" type="Sprite2D" parent="Rooms"]
+position = Vector2(256, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("3_4tdly")
+
+[node name="Room106" type="Sprite2D" parent="Rooms"]
+position = Vector2(480, 56)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pg56q")
+
+[node name="Room107" type="Sprite2D" parent="Rooms"]
+position = Vector2(552, 216)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pg56q")
+
+[node name="Room108" type="Sprite2D" parent="Rooms"]
+position = Vector2(408, 304)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pg56q")
+
+[node name="Room109" type="Sprite2D" parent="Rooms"]
+position = Vector2(312, 160)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pg56q")
+
+[node name="Room110" type="Sprite2D" parent="Rooms"]
+position = Vector2(184, 304)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pg56q")
+
+[node name="Room111" type="Sprite2D" parent="Rooms"]
+position = Vector2(104, 160)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pg56q")
+
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_pg56q")
+
+[node name="PathFollow" type="PathFollow2D" parent="Path"]
+top_level = true
+position = Vector2(16, 24)
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("1_tsbtd")
+
+[node name="BoardPlayer" type="Area2D" parent="Path/PathFollow"]
+script = ExtResource("4_dryrw")
+
+[node name="Sprite" type="Sprite2D" parent="Path/PathFollow/BoardPlayer"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_tsbtd")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Path/PathFollow/BoardPlayer"]
+shape = SubResource("RectangleShape2D_gn1mo")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="WalkingDelay" type="Timer" parent="Path/PathFollow/BoardPlayer"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="FightPlayer" parent="." instance=ExtResource("8_61bmw")]
+position = Vector2(208, 128)
+scale = Vector2(2, 2)
+current_animation = 2
+animation_speed = 4.0
+
+[node name="FightPlayer2" parent="." instance=ExtResource("8_61bmw")]
+position = Vector2(448, 128)
+scale = Vector2(-4, 4)
+current_animation = 2
+animation_speed = 0.5
+
+[connection signal="area_exited" from="Rooms/Room104" to="Rooms/Room104" method="_on_area_exited"]
+[connection signal="timeout" from="Path/PathFollow/BoardPlayer/WalkingDelay" to="Path/PathFollow/BoardPlayer" method="_on_timer_timeout"]

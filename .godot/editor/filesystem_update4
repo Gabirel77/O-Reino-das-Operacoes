@@ -1,2 +1,4 @@
 res://Entities/Player/Player.tscn
-res://Entities/Player/Player.gd
+res://Stages/Boards/Block100.tscn
+res://Entities/BoardPlayer/BoardPlayer.tscn
+res://Entities/FightPlayer/FightPlayer.tscn

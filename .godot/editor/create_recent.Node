@@ -1,1 +1,10 @@
 Sprite2D
+Area2D
+AnimationPlayer
+Timer
+CollisionShape2D
+PathFollow2D
+Path2D
+Node2D
+Camera2D
+Node
