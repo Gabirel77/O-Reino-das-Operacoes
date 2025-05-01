@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://djw1qlel1dn1"]
+
+[ext_resource type="Script" uid="uid://cj1ipqkeh3iwf" path="res://Prototypes/PointAndClickBoardPlayer/PointAndClickBoardPlayer.gd" id="1_51s7q"]
+[ext_resource type="Texture2D" uid="uid://callk7b0fiq2c" path="res://icon.svg" id="2_eu47q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51s7q"]
+size = Vector2(8, 8)
+
+[node name="PointAndClickBoardPlayer" type="CharacterBody2D"]
+script = ExtResource("1_51s7q")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.74, 0.694367, 0.1924, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_eu47q")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_51s7q")

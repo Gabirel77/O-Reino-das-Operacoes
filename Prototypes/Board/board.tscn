@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://dhmssokgomeus"]
+[gd_scene load_steps=8 format=4 uid="uid://dhmssokgomeus"]
 
 [ext_resource type="Texture2D" uid="uid://dyray8uvxsbnt" path="res://Images/Tabuleiro_ReinoDasOperacoes/table-sheet-3.png" id="1_y6r5b"]
-[ext_resource type="PackedScene" uid="uid://ckmda40t4kudk" path="res://Entities/BoardPlayer/BoardPlayer.tscn" id="2_hokif"]
+[ext_resource type="PackedScene" uid="uid://bk4ioewhj8s6d" path="res://Prototypes/AutoBoardPlayer/AutoBoardPlayer.tscn" id="2_deppk"]
+[ext_resource type="PackedScene" uid="uid://djw1qlel1dn1" path="res://Prototypes/PointAndClickBoardPlayer/PointAndClickBoardPlayer.tscn" id="3_deppk"]
+[ext_resource type="PackedScene" uid="uid://gau3ktxf4yrg" path="res://Prototypes/ControledBoardPlayer/ControledBoardPlayer.tscn" id="4_f6k4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hokif"]
 texture = ExtResource("1_y6r5b")
@@ -12,7 +14,7 @@ texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
-1:1/0/modulate = Color(0.68, 0.1428, 0.1428, 1)
+1:1/0/modulate = Color(1, 0.12, 0.12, 1)
 2:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
@@ -38,7 +40,13 @@ tile_set = SubResource("TileSet_deppk")
 curve = SubResource("Curve2D_y6r5b")
 
 [node name="PathFollow" type="PathFollow2D" parent="Path"]
+position = Vector2(48, 144)
 rotates = false
-loop = false
 
-[node name="BoardPlayer" parent="Path/PathFollow" instance=ExtResource("2_hokif")]
+[node name="AutoBoardPlayer" parent="Path/PathFollow" instance=ExtResource("2_deppk")]
+
+[node name="PointAndClickBoardPlayer" parent="." instance=ExtResource("3_deppk")]
+position = Vector2(88, 152)
+
+[node name="ControledBoardPlayer" parent="." instance=ExtResource("4_f6k4s")]
+position = Vector2(48, 184)

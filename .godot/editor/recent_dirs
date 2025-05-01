@@ -1,3 +1,6 @@
+res://Prototypes/ControledBoardPlayer
+res://Prototypes/AutoBoardPlayer
+res://Prototypes/PointAndClickBoardPlayer
 res://Prototypes/Board
 res://Images/Tabuleiro_ReinoDasOperacoes
 res://Entities/FightPlayer

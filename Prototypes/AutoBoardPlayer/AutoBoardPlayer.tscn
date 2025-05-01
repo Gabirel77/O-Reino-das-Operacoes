@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk4ioewhj8s6d"]
+
+[ext_resource type="Script" uid="uid://b0q2jlt8ld2wb" path="res://Prototypes/AutoBoardPlayer/AutoBoardPlayer.gd" id="1_equdk"]
+[ext_resource type="Texture2D" uid="uid://callk7b0fiq2c" path="res://icon.svg" id="2_q8ifj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8v6q"]
+size = Vector2(8, 8)
+
+[node name="AutoBoardPlayer" type="CharacterBody2D"]
+script = ExtResource("1_equdk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.133333, 0, 1, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_q8ifj")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i8v6q")
