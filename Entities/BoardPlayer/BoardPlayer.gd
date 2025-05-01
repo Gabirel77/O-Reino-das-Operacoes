@@ -1,34 +1,15 @@
-#class_name BoardPlayer
+class_name BoardPlayerPrototype
 extends Area2D
-#
-#@onready var path_follow: PathFollow = $".."
-#@onready var walking_delay: Timer = $WalkingDelay
-#
-#var is_running: bool
-#var is_enabled: bool
-#var is_finished: bool
-#
-#@export var speed: float = 0.1
-#
-#func _ready() -> void:
-	#path_follow = null
-	#walking_delay = $"WalkingDelay"
-	#is_running = false
-	#is_enabled = false
-	#is_finished = false
-#
-#func _process(delta: float) -> void:
-	#if not is_finished:
-		#if path_follow.progress_ratio == 1.0:
-			#is_finished = true
-		#elif not path_follow is null:
-			#if not is_running and Input.is_action_pressed("ui_accept"):
-				#is_enabled = not is_enabled
-				#is_running = true
-				#walking_delay.start()
-				#print("Pressionado")
-			#if is_enabled and path_follow.progress_ratio < 1.0:
-				#path_follow.progress_ratio += delta * speed
-#
-#func _on_timer_timeout() -> void:
-	#is_running = false
+
+@onready var path_follow: PathFollow2D = $".."
+@onready var walking_delay: Timer = $WalkingDelay
+
+@export var speed: float = 0.1
+
+func _ready() -> void:
+	path_follow = self.get_parent()
+	return
+
+func _process(delta: float) -> void:
+	path_follow.progress_ratio += speed * delta
+	return

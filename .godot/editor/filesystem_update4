@@ -1,4 +1,6 @@
-res://Entities/Player/Player.tscn
 res://Stages/Boards/Block100.tscn
+res://Entities/Player/Player.tscn
 res://Entities/BoardPlayer/BoardPlayer.tscn
 res://Entities/FightPlayer/FightPlayer.tscn
+res://Prototypes/Board/board.tscn
+res://Entities/BoardPlayer/BoardPlayer.gd
