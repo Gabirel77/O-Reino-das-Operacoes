@@ -1,11 +1,4 @@
-res://Prototypes/PointAndClickBoardPlayer/PointAndClickBoardPlayer.gd
-res://Prototypes/PointAndClickBoardPlayer/PointAndClickBoardPlayer.tscn
-res://Entities/Player/Player.tscn
-res://Stages/Boards/Block100.tscn
-res://Entities/BoardPlayer/BoardPlayer.tscn
-res://Entities/FightPlayer/FightPlayer.tscn
 res://Prototypes/Board/board.tscn
-res://Prototypes/AutoBoardPlayer/AutoBoardPlayer.gd
+res://Prototypes/PointAndClickBoardPlayer/PointAndClickBoardPlayer.tscn
 res://Prototypes/AutoBoardPlayer/AutoBoardPlayer.tscn
-res://Prototypes/ControledBoardPlayer/ControledBoardPlayer.gd
 res://Prototypes/ControledBoardPlayer/ControledBoardPlayer.tscn
